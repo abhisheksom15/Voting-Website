@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.ebextensions",
+    "\\kranti_vahini",
+    "\\portal",
+    "\\portal\\management",
+    "\\portal\\management\\commands",
+    "\\templates",
+    "\\templates\\portal"
+  ],
+  "SelectedNode": "\\templates\\portal\\welcome.html",
+  "PreviewInSolutionExplorer": false
+}

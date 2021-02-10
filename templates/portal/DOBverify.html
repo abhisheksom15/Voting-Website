@@ -1,0 +1,32 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block body_block %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//geodata.solutions/includes/statecity.js"></script>
+<div class="jumbotron">
+  <center>
+  <h1>Login Form</h1>
+  <h3 class="lead">Verify DOB details and then click on submit DOB button:</h3>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <style media="screen">
+      .errorlist
+    {
+        color: red;
+    }
+    .error input, .error select {
+    border: 2px red solid;
+    }
+    </style>
+    <table >
+    {{ DOBForm.as_table }}
+    </table>
+    <br>
+    <input type="submit" name="" value="Submit DOB" class="btn btn-primary btn-lg">
+    {% if error %}
+      <p class="lead" style="color:red;">● {{ error_message }}</p>
+    {% endif %}
+  </form>
+  </center>
+</div>
+{% endblock %}

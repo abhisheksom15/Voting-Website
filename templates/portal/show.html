@@ -1,0 +1,11 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block body_block %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//geodata.solutions/includes/statecity.js"></script>
+<div class="container">
+  <h1>{{page_name}}</h1>
+  <br>
+  <h3 class="lead">{{page_text|linebreaks|urlize}}</h3>
+</div>
+{% endblock %}

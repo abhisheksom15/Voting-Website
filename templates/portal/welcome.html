@@ -1,0 +1,61 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block body_block %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//geodata.solutions/includes/statecity.js"></script>
+<script type="text/javascript">
+
+</script>
+
+<div class="jumbotron">
+  {% if registered %}
+  <h1>Thank you for Registration!</h1>
+  {% elif user.is_authenticated %}
+  <center>
+      <h1>{{ UserProfile.name }}</h1>
+<h3 class="lead">Profile Information</h3>
+  <table>
+<tbody><tr><th><label for="id_username">Mobile Number:</label></th><td><input type="text" name="username" class="form-control" disabled="true" maxlength="150" required="" id="mobile" disabled="true" value="{{ UserProfile.user }}"></td></tr>
+<tr><th><label for="id_first_name">Name:</label></th><td><input type="text" name="first_name" class="form-control" maxlength="30" id="id_first_name" disabled="true" value="{{ UserProfile.name }}"></td></tr>
+<tr><th><label for="id_num_follower">Number of followers:</label></th><td><input type="text" name="Number_of_follower" class="form-control" maxlength="30" id="id_num_follower" disabled="true" value="{{ UserProfile.Number_of_follower }}"></td></tr>
+<tr><th><label for="id_Gender">Gender:</label></th><td><input type="text" name="Gender" class="form-control" required="" id="id_Gender" disabled="true" value="{{ UserProfile.Gender }}"></td></tr>
+<tr><th><label for="id_date_of_birth">Date of birth:</label></th><td><input type="text" name="date_of_birth" class="form-control" required="" id="id_date_of_birth" disabled="true" value="{{ UserProfile.date_of_birth|date:'d-m-Y' }}"></td></tr>
+<tr><th><label for="country">Country:</label></th><td><input type="text" name="Country" class="form-control" id="country" disabled="true" value="{{ UserProfile.Country }}"></td></tr>
+<tr><th><label for="stateId">State:</label></th><td><input type="text" name="State" class="form-control states" id="state" maxlength="50" disabled="true" value="{{ UserProfile.State }}"></td></tr>
+<tr><th><label for="DistrictId">City:</label></th><td><input type="text" name="District" class="form-control cities" id="city" maxlength="100" disabled="true" value="{{ UserProfile.District }}"></td></tr>
+<tr><th><label for="id_constituency">Constituency:</label></th><td><input type="text" name="constituency" class="form-control" required="" id="id_constituency" disabled="true" value="{{ UserProfile.constituency }}"></td></tr>
+<tr><th><label for="id_Highest_Education">Highest Education:</label></th><td><input type="text" name="Highest_Education" class="form-control" required="" id="id_Highest_Education" disabled="true" value="{{ UserProfile.Highest_Education }}"></td></tr>
+<tr><th><label for="id_follower">Follow:</label></th><td><input type="text" name="follower" class="form-control" required="" id="id_follower" disabled="true" value="{{ UserProfile.follower }}"></td></tr>
+</tbody></table>
+</center>
+    {% if error %}
+      <p class="lead" style="color:'red';">● {{ error_message }}</p>
+    {% endif %}
+
+  {% else %}
+
+  <center>
+  <h1>Login/Sign-up Form</h1>
+  <h3 class="lead">Fill up the Mobile number and OTP details and then click on submit button:</h3>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <style media="screen">
+      .errorlist
+    {
+        color: red;
+    }
+    .error input, .error select {
+    border: 2px red solid;
+    }
+    </style>
+    <table >
+    {{ mobileotp_Form.as_table }}
+    <input type="hidden" name="country" id="countryId" value="IN"/>
+    </table>
+    <br>
+    <input type="submit" name="" value="Submit" class="btn btn-primary btn-lg">
+  </form>
+  </center>
+  {% endif %}
+</div>
+{% endblock %}

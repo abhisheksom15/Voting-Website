@@ -1,0 +1,41 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block body_block %}
+
+<div class="container">
+  <div class="jumbotron">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 box-shadow">
+        <div class="card-header">
+          <img src="{% static 'SBI.png' %}" alt="SBI LOGO"  style="height:50px">
+
+        </div>
+        <div class="card-body">
+          <h5 class="my-0 font-weight-normal" style="color:#00CCFF;">Transfer in Account</h5>
+          <br>
+          <p>Account Holder Name: Uttarakhand Kranti Dal</p>
+          <p>Account No: 35793414191</p>
+          <p>IFSC Code: SBIN0003137</p>
+          <br>
+        </div>
+      </div>
+      <div class="card mb-4 box-shadow" >
+        <div class="card-header">
+          <img src="{% static 'UPI.png' %}" alt="UPI LOGO"  style="height:50px">
+        </div>
+        <div class="card-body">
+          <h5 class="my-0 font-weight-normal" style="color:#00CCFF;">Transfer using UPI</h5>
+          <br>
+          <h1>coming soon...</h1>
+        </div>
+      </div>
+    </div>
+    <center>
+    <p class="lead">Donation will help this public interest organisation to survive.</p>
+    </center
+  </div>
+
+
+
+</div>
+{% endblock %}
